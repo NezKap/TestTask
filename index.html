@@ -15,7 +15,7 @@
             font-size: 24px;
         }
 
-        .pairs-header {
+        .popular-pairs-grid__header {
             text-align: left;
             font-size: 18px;
             grid-column-start: 1;
@@ -23,7 +23,7 @@
             margin-bottom: -16px;
         }
 
-        .growing-pairs-header {
+        .growing-pairs-grid__header {
             text-align: left;
             font-size: 18px;
             grid-column-start: 1;
@@ -43,7 +43,7 @@
             gap: 400px;
         }
 
-        .grid {
+        .popular-pairs-grid {
             width: 32%;
             /* margin: 0 auto; */
             display: grid;
@@ -59,11 +59,10 @@
             grid-gap: 16px;
         }
 
-        .flex {
+        .position-flex {
            display: flex;
            justify-content: flex-start;
            flex-direction: row;
-           align-items: flex-start;
            gap: 16px;
            margin: 20px 0;
            flex-wrap: wrap;
@@ -143,8 +142,8 @@
     </header>
 
     <div class="pair-flex">
-        <div class="grid">
-            <div class="pairs-header">
+        <div class="popular-pairs-grid">
+            <div class="popular-pairs-grid__header">
                 <h2>Популярные пары</h2>
             </div>
 
@@ -186,7 +185,7 @@
         </div>
 
         <div class="growing-pairs-grid">
-            <div class="growing-pairs-header">
+            <div class="growing-pairs-grid__header">
                 <h2>Пары с наибольшим ростом</h2>
             </div>
 
@@ -208,7 +207,7 @@
         <h2>Открытые позиции</h2>
     </div>
 
-    <div class="flex">
+    <div data-container="positions" class="position-flex">
         <div class="position-card">
             <div class="position-card__title">Пара: BTC/USDT</div>
             <div class="position-card__type">Тип сделки: ПОКУПКА</div>
@@ -229,6 +228,42 @@
             <div class="position-card__amount">Количество: 0.3 BTC</div>
             <div class="position-card__price">Цена входа: 69317.47</div>
         </div>
+
+        <button data-action="add" data-target="positions" data-pair="pair-select" data-type="trade-type-select" data-amount="amount-input" data-price="price-input">Открыть позицию</button>
+    </div>
+
+    <div data-list="pair-select">
+    <form>
+        <label for="pair-select">Выберите пару: </label>
+        <select name="pair" id="pair-select">
+            <option value="btc">BTC/USDT</option>
+            <option value="eth">ETH/USDT</option>
+            <option value="sol">SOL/USDT</option>
+            <option value="aave">AAVE/USDT</option>
+            <option value="usde">USDE/USDT</option>
+            <option value="xrp">XRP/USDT</option>
+            <option value="afrd">AFRD/USDT</option>
+            <option value="rpl">RPL/USDT"</option>
+        </select>
+    </form>
+    </div>
+
+    <div data-list="trade-type-select">
+    <form>
+        <label for="trade-type-select">Выберите тип сделки: </label>
+        <select name="trade-type" id="trade-type-select">
+            <option value="buy">ПОКУПКА</option>
+            <option value="sell">ПРОДАЖА</option>
+        </select>
+    </form>
+    </div>
+
+    <div data-input="amount-input">
+        <input type="number" name="amount" min="0" placeholder="Введите количество монет: ">
+    </div>
+
+    <div data-input="price-input">
+        <input type="number" name="price" min="0" placeholder="Введите цену входа: ">
     </div>
 
     <div class="fix">
@@ -245,7 +280,44 @@
     </div>
 
     <footer>
-        <a href="/123">Внести депозит</a>
+        <a href="/115fz">Внести депозит</a>
     </footer>
 </body>
+
+<script>
+    const btns = document.querySelectorAll('[data-action]')
+    const containers = document.querySelectorAll('[data-container]')
+    const lists = document.querySelectorAll('[data-list]')
+    const inputs = document.querySelectorAll('[data-input]')
+    btns.forEach(i => {
+        i.addEventListener('click', () => {
+            const conName= i.dataset['target']
+            const pairListName = i.dataset['pair']
+            const tradeTypeListName = i.dataset['type']
+            const amountName = i.dataset['amount']
+            const priceName = i.dataset['price']
+            const con = Array.from(containers).find(i => i.dataset['container'] === conName)
+            const pairList = Array.from(lists).find(i => i.dataset['list'] === pairListName)
+            const tradeTypeList = Array.from(lists).find(i => i.dataset['list'] === tradeTypeListName)
+            const amountInput = Array.from(inputs).find(i => i.dataset['input'] === amountName)
+            const priceInput = Array.from(inputs).find(i => i.dataset['input'] === priceName)
+            const el = document.createElement('div')
+            const selectedPair = pairList.querySelector('select')
+            const selectedTradeType = tradeTypeList.querySelector('select')
+            const amount = amountInput.querySelector('input').value
+            const price = priceInput.querySelector('input').value
+            const currency = selectedPair.value.toUpperCase()
+            const pair = selectedPair.options[selectedPair.selectedIndex].text;
+            const tradeType = selectedTradeType.options[selectedTradeType.selectedIndex].text;
+            el.innerHTML = '<div class="position-card">\n' +
+                '<div class="position-card__title">Пара: ' + pair + '</div>\n' +
+                '<div class="position-card__type">Тип сделки: ' + tradeType + '</div>\n' + 
+                '<div class="position-card__amount">Количество: ' + amount + ' ' + currency + '</div>\n' +
+                '<div class="position-card__price">Цена входа: ' + price + '</div>\n' +
+                '</div>'
+            con.insertBefore(el, i)
+        })
+    })
+</script>
+
 </html>

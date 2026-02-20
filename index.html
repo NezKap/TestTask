@@ -6,8 +6,8 @@
 
     <style>
         body {
-            color: red;
-            background-color: rgba(248, 247, 247, 0.856);
+            color: rgba(255, 255, 255, 0.904);
+            background-color: rgb(11, 24, 41);
         }
 
         .header {
@@ -15,48 +15,66 @@
             font-size: 24px;
         }
 
-        .popular-pairs-grid__header {
+        .popular-assets-grid__header {
             text-align: left;
             font-size: 18px;
-            grid-column-start: 1;
+            grid-column-start: 2;
             grid-column-end: 4;
             margin-bottom: -16px;
         }
 
-        .growing-pairs-grid__header {
-            text-align: left;
+        .growing-assets-grid__header {
+            text-align: center;
             font-size: 18px;
             grid-column-start: 1;
             grid-column-end: 2;
             margin-bottom: -16px;
         }
 
-        .positions-header {
-            text-align: left;
-            font-size: 18px;
-        }
-
-        .pair-flex {
+        .assets-flex {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
             gap: 400px;
         }
 
-        .popular-pairs-grid {
+        .popular-assets-grid {
             width: 32%;
-            /* margin: 0 auto; */
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-gap: 16px;
         }
 
-        .growing-pairs-grid {
+        .growing-assets-grid {
             width: 20%;
-            /* margin: 0 auto; */
             display: grid;
             grid-template-columns: 1fr;
             grid-gap: 16px;
+        }
+
+        .assets-card {
+            background-color: rgb(23, 36, 53);
+            box-shadow: 0 0 5px rgb(243, 242, 242);
+            display: inline-block;
+            border-radius: 15px;
+            padding: 10px;
+        }
+
+        .assets-card__title {
+            color:rgba(255, 255, 255, 0.822);
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .assets-card__price {
+            color:rgba(255, 255, 255, 0.822);
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .assets-card__change {
+            color:rgba(255, 255, 255, 0.822);
+            font-size: 16px;
         }
 
         .position-flex {
@@ -68,44 +86,14 @@
            flex-wrap: wrap;
         }
 
-        .fix {
-            position: fixed;
-            right: 0;
-            top: 0;
-        }
-
-        .fix__btn {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-        }
-
-        .pair-card {
-            box-shadow: 0 0 5px gray;
-            display: inline-block;
-            border-radius: 15px;
-            padding: 10px;
-        }
-
-        .pair-card__title {
-            font-size: 24px;
-            color:rgb(37, 37, 37);
-            margin-bottom: 12px;
-        }
-
-        .pair-card__price {
-            font-size: 20px;
-            color:rgb(48, 47, 47);
-            margin-bottom: 6px;
-        }
-
-        .pair-card__change {
-            font-size: 16px;
-            color:rgb(48, 47, 47);
+        .positions-header {
+            text-align: left;
+            font-size: 18px;
         }
 
         .position-card {
             box-shadow: 0 0 5px gray;
+            background-color: rgba(41, 58, 83, 0.87);
             display: inline-block;
             border-radius: 6px;
             padding: 10px;
@@ -113,26 +101,58 @@
 
         .position-card__title {
             font-size: 22px;
-            color:rgb(37, 37, 37);
+            color:rgba(255, 255, 255, 0.822);
             margin-bottom: 8px;
         }
 
         .position-card__type {
             font-size: 20px;
-            color:rgb(37, 37, 37);
+            color:rgba(255, 255, 255, 0.822);
             margin-bottom: 8px;
         }
 
         .position-card__amount {
             font-size: 20px;
-            color:rgb(37, 37, 37);
+            color:rgba(255, 255, 255, 0.822);
             margin-bottom: 8px;
         }
 
         .position-card__price {
             font-size: 20px;
-            color:rgb(37, 37, 37);
+            color:rgba(255, 255, 255, 0.822);
             margin-bottom: 20px;
+        }
+
+        .account-card {
+            position: fixed;
+            box-shadow: 0 0 3px rgb(243, 242, 242);
+            background-color: rgb(38, 50, 70);
+            border-radius: 11px;
+            padding: 10px;
+            right: 0;
+            top: 0;
+        }
+
+        .account-card__name {
+            color:rgba(255, 255, 255, 0.822);
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .account-card__balance {
+            color:rgba(255, 255, 255, 0.822);
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .account-card__deposit {
+            color:rgba(255, 255, 255, 0.822);
+            font-size: 20px;
+        }
+
+        .input-field {
+            width: 10%;
+            box-shadow: 0 0 3px gray;
         }
     </style>
 </head>
@@ -141,64 +161,64 @@
         <h1>Криптовалютная биржа «КупиКрипто»</h1>
     </header>
 
-    <div class="pair-flex">
-        <div class="popular-pairs-grid">
-            <div class="popular-pairs-grid__header">
+    <div class="assets-flex">
+        <div class="popular-assets-grid">
+            <div class="popular-assets-grid__header">
                 <h2>Популярные пары</h2>
             </div>
 
-            <div class="pair-card">
-                <div class="pair-card__title">BTC/USDT</div>
-                <div class="pair-card__price">68017.8</div>
-                <div class="pair-card__change">-1.21%</div>
+            <div class="assets-card">
+                <div class="assets-card__title">BTC/USDT</div>
+                <div class="assets-card__price">68017.8</div>
+                <div class="assets-card__change">-1.21%</div>
             </div>
 
-            <div class="pair-card">
-                <div class="pair-card__title">ETH/USDT</div>
-                <div class="pair-card__price">1984.9</div>
-                <div class="pair-card__change">+0.38%</div>
+            <div class="assets-card">
+                <div class="assets-card__title">ETH/USDT</div>
+                <div class="assets-card__price">1984.9</div>
+                <div class="assets-card__change">+0.38%</div>
             </div>
 
-            <div class="pair-card">
-                <div class="pair-card__title">SOL/USDT</div>
-                <div class="pair-card__price">84.8</div>
-                <div class="pair-card__change">-2.28%</div>
+            <div class="assets-card">
+                <div class="assets-card__title">SOL/USDT</div>
+                <div class="assets-card__price">84.8</div>
+                <div class="assets-card__change">-2.28%</div>
             </div>
 
-            <div class="pair-card">
-                <div class="pair-card__title">AAVE/USDT</div>
-                <div class="pair-card__price">124.93</div>
-                <div class="pair-card__change">+0.48%</div>
+            <div class="assets-card">
+                <div class="assets-card__title">AAVE/USDT</div>
+                <div class="assets-card__price">124.93</div>
+                <div class="assets-card__change">+0.48%</div>
             </div>
 
-            <div class="pair-card">
-                <div class="pair-card__title">USDE/USDT</div>
-                <div class="pair-card__price">0.9995</div>
-                <div class="pair-card__change">+0.02%</div>
+            <div class="assets-card">
+                <div class="assets-card__title">USDE/USDT</div>
+                <div class="assets-card__price">0.9995</div>
+                <div class="assets-card__change">+0.02%</div>
             </div>
 
-            <div class="pair-card">
-                <div class="pair-card__title">XRP/USDT</div>
-                <div class="pair-card__price">1.4846</div>
-                <div class="pair-card__change">-0.06%</div>
+            <div class="assets-card">
+                <div class="assets-card__title">XRP/USDT</div>
+                <div class="assets-card__price">1.4846</div>
+                <div class="assets-card__change">-0.06%</div>
             </div>
         </div>
 
-        <div class="growing-pairs-grid">
-            <div class="growing-pairs-grid__header">
+        <div class="growing-assets-grid">
+            <div class="growing-assets-grid__header">
                 <h2>Пары с наибольшим ростом</h2>
             </div>
 
-            <div class="pair-card">
-                <div class="pair-card__title">AFRD/USDT</div>
-                <div class="pair-card__price">0.6475</div>
-                <div class="pair-card__change">+159.00%</div>
+            <div class="assets-card">
+                <div class="assets-card__title">AFRD/USDT</div>
+                <div class="assets-card__price">0.6475</div>
+                <div class="assets-card__change">+159.00%</div>
             </div>
 
-            <div class="pair-card">
-                <div class="pair-card__title">RPL/USDT</div>
-                <div class="pair-card__price">3.15</div>
-                <div class="pair-card__change">+74.80%</div>
+            <div class="assets-card">
+                <div class="assets-card__title">RPL/USDT</div>
+                <div class="assets-card__price">3.15</div>
+                <div class="assets-card__change">+74.80%</div>
             </div>
         </div>
     </div>
@@ -229,58 +249,49 @@
             <div class="position-card__price">Цена входа: 69317.47</div>
         </div>
 
-        <button data-action="add" data-target="positions" data-pair="pair-select" data-type="trade-type-select" data-amount="amount-input" data-price="price-input">Открыть позицию</button>
+        <button data-action="add" data-target="positions" data-assets="assets-select" data-type="trade-type-select" data-amount="amount-input" data-price="price-input">Открыть позицию</button>
     </div>
 
-    <div data-list="pair-select">
-    <form>
-        <label for="pair-select">Выберите пару: </label>
-        <select name="pair" id="pair-select">
-            <option value="btc">BTC/USDT</option>
-            <option value="eth">ETH/USDT</option>
-            <option value="sol">SOL/USDT</option>
-            <option value="aave">AAVE/USDT</option>
-            <option value="usde">USDE/USDT</option>
-            <option value="xrp">XRP/USDT</option>
-            <option value="afrd">AFRD/USDT</option>
-            <option value="rpl">RPL/USDT"</option>
-        </select>
-    </form>
-    </div>
-
-    <div data-list="trade-type-select">
-    <form>
-        <label for="trade-type-select">Выберите тип сделки: </label>
-        <select name="trade-type" id="trade-type-select">
-            <option value="buy">ПОКУПКА</option>
-            <option value="sell">ПРОДАЖА</option>
-        </select>
-    </form>
-    </div>
-
-    <div data-input="amount-input">
-        <input type="number" name="amount" min="0" placeholder="Введите количество монет: ">
-    </div>
-
-    <div data-input="price-input">
-        <input type="number" name="price" min="0" placeholder="Введите цену входа: ">
-    </div>
-
-    <div class="fix">
-        <div class="position-card">
-            <div class="position-card__title">Пара: BTC/USDT</div>
-            <div class="position-card__type">Тип сделки: ПОКУПКА</div>
-            <div class="position-card__amount">Количество: 0.5 BTC</div>
-            <div class="position-card__price">Цена входа: 67856.12</div>
-        </div>
-
-        <div class="fix__btn">
-            <button>Закрыть позицию</button>
-        </div>
+    <div class="account-card">
+        <div class="account-card__name">SuperUser</div>
+        <div class="account-card__balance">Баланс: 9999 USDT</div>
+        <a class="account-card__deposit" href="/115fz">Внести депозит</a>
     </div>
 
     <footer>
-        <a href="/115fz">Внести депозит</a>
+        <div data-list="assets-select">
+            <form>
+                <label for="assets-select">Выберите пару: </label>
+                <select name="assets" id="assets-select">
+                    <option value="btc">BTC/USDT</option>
+                    <option value="eth">ETH/USDT</option>
+                    <option value="sol">SOL/USDT</option>
+                    <option value="aave">AAVE/USDT</option>
+                    <option value="usde">USDE/USDT</option>
+                    <option value="xrp">XRP/USDT</option>
+                    <option value="afrd">AFRD/USDT</option>
+                    <option value="rpl">RPL/USDT"</option>
+                </select>
+            </form>
+        </div>
+
+        <div data-list="trade-type-select">
+            <form>
+                <label for="trade-type-select">Выберите тип сделки: </label>
+                <select name="trade-type" id="trade-type-select">
+                    <option value="buy">ПОКУПКА</option>
+                    <option value="sell">ПРОДАЖА</option>
+                </select>
+            </form>
+        </div>
+
+        <div data-input="amount-input">
+            <input class="input-field" type="number" name="amount" min="0" placeholder="Введите количество монет: ">
+        </div>
+
+        <div data-input="price-input">
+            <input class="input-field" type="number" name="price" min="0" placeholder="Введите цену входа: ">
+        </div>
     </footer>
 </body>
 
@@ -292,25 +303,25 @@
     btns.forEach(i => {
         i.addEventListener('click', () => {
             const conName= i.dataset['target']
-            const pairListName = i.dataset['pair']
+            const assetsListName = i.dataset['assets']
             const tradeTypeListName = i.dataset['type']
             const amountName = i.dataset['amount']
             const priceName = i.dataset['price']
             const con = Array.from(containers).find(i => i.dataset['container'] === conName)
-            const pairList = Array.from(lists).find(i => i.dataset['list'] === pairListName)
+            const assetsList = Array.from(lists).find(i => i.dataset['list'] === assetsListName)
             const tradeTypeList = Array.from(lists).find(i => i.dataset['list'] === tradeTypeListName)
             const amountInput = Array.from(inputs).find(i => i.dataset['input'] === amountName)
             const priceInput = Array.from(inputs).find(i => i.dataset['input'] === priceName)
             const el = document.createElement('div')
-            const selectedPair = pairList.querySelector('select')
+            const selectedAssets = assetsList.querySelector('select')
             const selectedTradeType = tradeTypeList.querySelector('select')
             const amount = amountInput.querySelector('input').value
             const price = priceInput.querySelector('input').value
-            const currency = selectedPair.value.toUpperCase()
-            const pair = selectedPair.options[selectedPair.selectedIndex].text;
-            const tradeType = selectedTradeType.options[selectedTradeType.selectedIndex].text;
+            const currency = selectedAssets.value.toUpperCase()
+            const assets = selectedAssets.options[selectedAssets.selectedIndex].text
+            const tradeType = selectedTradeType.options[selectedTradeType.selectedIndex].text
             el.innerHTML = '<div class="position-card">\n' +
-                '<div class="position-card__title">Пара: ' + pair + '</div>\n' +
+                '<div class="position-card__title">Пара: ' + assets + '</div>\n' +
                 '<div class="position-card__type">Тип сделки: ' + tradeType + '</div>\n' + 
                 '<div class="position-card__amount">Количество: ' + amount + ' ' + currency + '</div>\n' +
                 '<div class="position-card__price">Цена входа: ' + price + '</div>\n' +

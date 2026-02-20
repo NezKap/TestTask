@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>КупиКрипто</title>
+    <title>Торговая площадка</title>
 
     <style>
         body {
@@ -15,7 +15,7 @@
             font-size: 24px;
         }
 
-        .popular-assets-grid__header {
+        .popular-products-grid__header {
             text-align: left;
             font-size: 18px;
             grid-column-start: 2;
@@ -23,7 +23,7 @@
             margin-bottom: -16px;
         }
 
-        .growing-assets-grid__header {
+        .discount-products-grid__header {
             text-align: center;
             font-size: 18px;
             grid-column-start: 1;
@@ -31,28 +31,28 @@
             margin-bottom: -16px;
         }
 
-        .assets-flex {
+        .products-flex {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
             gap: 400px;
         }
 
-        .popular-assets-grid {
+        .popular-products-grid {
             width: 32%;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-gap: 16px;
         }
 
-        .growing-assets-grid {
+        .discount-products-grid {
             width: 20%;
             display: grid;
             grid-template-columns: 1fr;
             grid-gap: 16px;
         }
 
-        .assets-card {
+        .products-card {
             background-color: rgb(23, 36, 53);
             box-shadow: 0 0 5px rgb(243, 242, 242);
             display: inline-block;
@@ -60,19 +60,19 @@
             padding: 10px;
         }
 
-        .assets-card__title {
+        .products-card__title {
             color:rgba(255, 255, 255, 0.822);
             font-size: 24px;
             margin-bottom: 12px;
         }
 
-        .assets-card__price {
+        .products-card__price {
             color:rgba(255, 255, 255, 0.822);
             font-size: 20px;
             margin-bottom: 6px;
         }
 
-        .assets-card__change {
+        .products-card__change {
             color:rgba(255, 255, 255, 0.822);
             font-size: 16px;
         }
@@ -139,13 +139,13 @@
             margin-bottom: 12px;
         }
 
-        .account-card__balance {
+        .account-card__bonuses {
             color:rgba(255, 255, 255, 0.822);
             font-size: 24px;
             margin-bottom: 12px;
         }
 
-        .account-card__deposit {
+        .account-card__discount {
             color:rgba(255, 255, 255, 0.822);
             font-size: 20px;
         }
@@ -158,139 +158,111 @@
 </head>
 <body>
     <header class="header">
-        <h1>Криптовалютная биржа «КупиКрипто»</h1>
+        <h1>Рыночная торговая площадка</h1>
     </header>
 
-    <div class="assets-flex">
-        <div class="popular-assets-grid">
-            <div class="popular-assets-grid__header">
-                <h2>Популярные пары</h2>
+    <div class="products-flex">
+        <div class="popular-products-grid">
+            <div class="popular-products-grid__header">
+                <h2>Популярные товары</h2>
             </div>
 
-            <div class="assets-card">
-                <div class="assets-card__title">BTC/USDT</div>
-                <div class="assets-card__price">68017.8</div>
-                <div class="assets-card__change">-1.21%</div>
+            <div class="products-card">
+                <div class="products-card__title">Огурцы</div>
+                <div class="products-card__price">299.99 руб</div>
             </div>
 
-            <div class="assets-card">
-                <div class="assets-card__title">ETH/USDT</div>
-                <div class="assets-card__price">1984.9</div>
-                <div class="assets-card__change">+0.38%</div>
+            <div class="products-card">
+                <div class="products-card__title">Помидоры</div>
+                <div class="products-card__price">229.09 руб</div>
             </div>
 
-            <div class="assets-card">
-                <div class="assets-card__title">SOL/USDT</div>
-                <div class="assets-card__price">84.8</div>
-                <div class="assets-card__change">-2.28%</div>
+            <div class="products-card">
+                <div class="products-card__title">Картофель</div>
+                <div class="products-card__price">179.99 руб</div>
             </div>
 
-            <div class="assets-card">
-                <div class="assets-card__title">AAVE/USDT</div>
-                <div class="assets-card__price">124.93</div>
-                <div class="assets-card__change">+0.48%</div>
+            <div class="products-card">
+                <div class="products-card__title">Перец</div>
+                <div class="products-card__price">124.93 руб</div>
             </div>
 
-            <div class="assets-card">
-                <div class="assets-card__title">USDE/USDT</div>
-                <div class="assets-card__price">0.9995</div>
-                <div class="assets-card__change">+0.02%</div>
+            <div class="products-card">
+                <div class="products-card__title">Капуста</div>
+                <div class="products-card__price">149.99 руб</div>
             </div>
 
-            <div class="assets-card">
-                <div class="assets-card__title">XRP/USDT</div>
-                <div class="assets-card__price">1.4846</div>
-                <div class="assets-card__change">-0.06%</div>
+            <div class="products-card">
+                <div class="products-card__title">Баклажаны</div>
+                <div class="products-card__price">279.99 руб</div>
             </div>
         </div>
 
-        <div class="growing-assets-grid">
-            <div class="growing-assets-grid__header">
-                <h2>Пары с наибольшим ростом</h2>
+        <div class="discount-products-grid">
+            <div class="discount-products-grid__header">
+                <h2>Товары со скидкой</h2>
             </div>
 
-            <div class="assets-card">
-                <div class="assets-card__title">AFRD/USDT</div>
-                <div class="assets-card__price">0.6475</div>
-                <div class="assets-card__change">+159.00%</div>
+            <div class="products-card">
+                <div class="products-card__title">Морковь очищенная</div>
+                <div class="products-card__price">99.99 руб</div>
             </div>
 
-            <div class="assets-card">
-                <div class="assets-card__title">RPL/USDT</div>
-                <div class="assets-card__price">3.15</div>
-                <div class="assets-card__change">+74.80%</div>
+            <div class="products-card">
+                <div class="products-card__title">Лук репчатый</div>
+                <div class="products-card__price">45.99 руб</div>
             </div>
         </div>
     </div>
 
     <div class="positions-header">
-        <h2>Открытые позиции</h2>
+        <h2>Выбранные товары</h2>
     </div>
 
     <div data-container="positions" class="position-flex">
         <div class="position-card">
-            <div class="position-card__title">Пара: BTC/USDT</div>
-            <div class="position-card__type">Тип сделки: ПОКУПКА</div>
-            <div class="position-card__amount">Количество: 0.5 BTC</div>
-            <div class="position-card__price">Цена входа: 67856.12</div>
+            <div class="position-card__title">Товар: Огурцы</div>
+            <div class="position-card__amount">Количество: 0.5 кг</div>
         </div>
 
          <div class="position-card">
-            <div class="position-card__title">Пара: SOL/USDT</div>
-            <div class="position-card__type">Тип сделки: ПОКУПКА</div>
-            <div class="position-card__amount">Количество: 21.9 SOL</div>
-            <div class="position-card__price">Цена входа: 82.1</div>
+            <div class="position-card__title">Товар: Помидоры</div>
+            <div class="position-card__amount">Количество: 0.3 кг</div>
         </div>
 
          <div class="position-card">
-            <div class="position-card__title">Пара: BTC/USDT</div>
-            <div class="position-card__type">Тип сделки: ПРОДАЖА</div>
-            <div class="position-card__amount">Количество: 0.3 BTC</div>
-            <div class="position-card__price">Цена входа: 69317.47</div>
+            <div class="position-card__title">Товар: Картофель</div>
+            <div class="position-card__amount">Количество: 1 кг</div>
         </div>
 
-        <button data-action="add" data-target="positions" data-assets="assets-select" data-type="trade-type-select" data-amount="amount-input" data-price="price-input">Открыть позицию</button>
+        <button data-action="add" data-target="positions" data-products="products-select" data-amount="amount-input">Добавить товар</button>
     </div>
 
     <div class="account-card">
         <div class="account-card__name">SuperUser</div>
-        <div class="account-card__balance">Баланс: 9999 USDT</div>
-        <a class="account-card__deposit" href="/115fz">Внести депозит</a>
+        <div class="account-card__bonuses">Бонусные баллы: 9999 бонусов</div>
+        <a class="account-card__discount" href="/115fz">Оформить скидочную карту</a>
     </div>
 
     <footer>
-        <div data-list="assets-select">
+        <div data-list="products-select">
             <form>
-                <label for="assets-select">Выберите пару: </label>
-                <select name="assets" id="assets-select">
-                    <option value="btc">BTC/USDT</option>
-                    <option value="eth">ETH/USDT</option>
-                    <option value="sol">SOL/USDT</option>
-                    <option value="aave">AAVE/USDT</option>
-                    <option value="usde">USDE/USDT</option>
-                    <option value="xrp">XRP/USDT</option>
-                    <option value="afrd">AFRD/USDT</option>
-                    <option value="rpl">RPL/USDT"</option>
-                </select>
-            </form>
-        </div>
-
-        <div data-list="trade-type-select">
-            <form>
-                <label for="trade-type-select">Выберите тип сделки: </label>
-                <select name="trade-type" id="trade-type-select">
-                    <option value="buy">ПОКУПКА</option>
-                    <option value="sell">ПРОДАЖА</option>
+                <label for="products-select">Выберите товар: </label>
+                <select name="products" id="products-select">
+                    <option value="cucumber">Огурцы</option>
+                    <option value="tomato">Помидоры</option>
+                    <option value="potato">Картофель</option>
+                    <option value="pepper">Перец</option>
+                    <option value="cabbage">Капуста</option>
+                    <option value="eggplant">Баклажаны</option>
+                    <option value="carrot">Морковь очищенная</option>
+                    <option value="onion">Лук репчатый"</option>
                 </select>
             </form>
         </div>
 
         <div data-input="amount-input">
-            <input class="input-field" type="number" name="amount" min="0" placeholder="Введите количество монет: ">
-        </div>
-
-        <div data-input="price-input">
-            <input class="input-field" type="number" name="price" min="0" placeholder="Введите цену входа: ">
+            <input class="input-field" type="number" name="amount" min="0" placeholder="Введите количество товара: ">
         </div>
     </footer>
 </body>
@@ -303,28 +275,18 @@
     btns.forEach(i => {
         i.addEventListener('click', () => {
             const conName= i.dataset['target']
-            const assetsListName = i.dataset['assets']
-            const tradeTypeListName = i.dataset['type']
+            const productListName = i.dataset['products']
             const amountName = i.dataset['amount']
-            const priceName = i.dataset['price']
             const con = Array.from(containers).find(i => i.dataset['container'] === conName)
-            const assetsList = Array.from(lists).find(i => i.dataset['list'] === assetsListName)
-            const tradeTypeList = Array.from(lists).find(i => i.dataset['list'] === tradeTypeListName)
+            const productList = Array.from(lists).find(i => i.dataset['list'] === productListName)
             const amountInput = Array.from(inputs).find(i => i.dataset['input'] === amountName)
-            const priceInput = Array.from(inputs).find(i => i.dataset['input'] === priceName)
             const el = document.createElement('div')
-            const selectedAssets = assetsList.querySelector('select')
-            const selectedTradeType = tradeTypeList.querySelector('select')
+            const selectedProducts = productList.querySelector('select')
             const amount = amountInput.querySelector('input').value
-            const price = priceInput.querySelector('input').value
-            const currency = selectedAssets.value.toUpperCase()
-            const assets = selectedAssets.options[selectedAssets.selectedIndex].text
-            const tradeType = selectedTradeType.options[selectedTradeType.selectedIndex].text
+            const product = selectedProducts.options[selectedProducts.selectedIndex].text
             el.innerHTML = '<div class="position-card">\n' +
-                '<div class="position-card__title">Пара: ' + assets + '</div>\n' +
-                '<div class="position-card__type">Тип сделки: ' + tradeType + '</div>\n' + 
-                '<div class="position-card__amount">Количество: ' + amount + ' ' + currency + '</div>\n' +
-                '<div class="position-card__price">Цена входа: ' + price + '</div>\n' +
+                '<div class="position-card__title">Товар: ' + product + '</div>\n' +
+                '<div class="position-card__amount">Количество: ' + amount + ' кг</div>\n' +
                 '</div>'
             con.insertBefore(el, i)
         })
